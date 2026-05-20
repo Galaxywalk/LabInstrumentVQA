@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lab-instrument-vqa"
+version = "0.1.0"
+description = "Evaluate vision-language models on lab-instrument VQA tasks."
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.32.0",
+]
+
+[project.scripts]
+lab-instrument-vqa = "lab_instrument_vqa.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
