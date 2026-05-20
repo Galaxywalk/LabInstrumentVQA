@@ -1,2 +1,0 @@
-{"id":"scope_demo_001","image":"images/oscilloscope_demo.png","instrument":"oscilloscope","question":"What is the approximate peak-to-peak voltage of channel 1? Include the unit.","answer":null}
-{"id":"spectrum_demo_001","image":"images/spectrum_analyzer_demo.png","instrument":"spectrum analyzer","question":"What is the strongest visible peak frequency and power level? If markers are not readable, explain what can be inferred from the trace.","answer":null}

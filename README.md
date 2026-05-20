@@ -1,86 +1,45 @@
 # LabInstrumentVQA
 
-LabInstrumentVQA evaluates multimodal models on visual questions about electronic lab-instrument displays, such as oscilloscopes, spectrum analyzers, VNAs, logic analyzers, power supplies, and multimeters.
+LabInstrumentVQA is a benchmark scaffold for evaluating multimodal models on electronic lab-instrument displays: oscilloscopes, spectrum analyzers, vector network analyzers, logic analyzers, power supplies, and multimeters.
 
-## OpenRouter Evaluation
+The target problem is not OCR alone. Models need to parse dense instrument UIs, ground traces to calibrated axes, extract numeric measurements, recognize instrument state, and make domain-specific diagnoses.
 
-This repo uses `uv` for Python dependency and environment management. Use the single project environment at `.venv`.
+## Repository Map
 
-Create or update the environment:
+```text
+data/
+  benchmark/      VQA task files and future image/annotation assets.
+  literature/     Legal metadata-only ISSCC/JSSC literature survey workspace.
+docs/             Research brief, benchmark design, and workflow notes.
+src/              Python package and CLI implementations.
+tests/            Unit tests for tooling and data contracts.
+```
+
+## Quick Start
+
+Use one `uv` environment at the repo root:
 
 ```sh
 uv sync
 ```
 
-Set your OpenRouter API key:
+Run the OpenRouter evaluation CLI:
 
 ```sh
 export OPENROUTER_API_KEY="..."
-```
 
-Prepare a JSONL file with one sample per line:
-
-```json
-{"id":"scope_001","image":"images/scope_001.png","instrument":"oscilloscope","question":"What is the peak-to-peak voltage of channel 1?","answer":"2.0 Vpp"}
-```
-
-Run evaluation:
-
-```sh
 uv run lab-instrument-vqa \
-  --input examples/sample_tasks.jsonl \
-  --output outputs/openrouter_results.jsonl \
-  --models '~openai/gpt-latest,~google/gemini-pro-latest,~anthropic/claude-sonnet-latest'
+  --input data/benchmark/sample_tasks.jsonl \
+  --output outputs/openrouter_results.jsonl
 ```
 
-The output is JSONL with one row per `(sample, model)` pair, including the model prediction, optional ground-truth answer, and raw OpenRouter response.
-
-The default model list uses current OpenRouter vision aliases:
-
-- `~openai/gpt-latest`
-- `~google/gemini-pro-latest`
-- `~anthropic/claude-sonnet-latest`
-- `x-ai/grok-4.3`
-- `mistralai/mistral-medium-3-5`
-
-## Data Format
-
-Required fields:
-
-- `id`: sample identifier
-- `image`: local image path, relative to the JSONL file
-- `question`: VQA prompt
-
-Optional fields:
-
-- `answer`: ground-truth answer
-- `instrument`: instrument type
-- `metadata`: structured metadata such as vendor, model, SCPI settings, or trace file paths
-
-## Development
-
-Always run Python commands through the same `uv` environment:
-
-```sh
-uv run python -m compileall src
-uv run lab-instrument-vqa --help
-```
-
-## Literature Metadata
-
-The `data/literature/` workspace contains a legal metadata-only scaffold for surveying recent ISSCC and JSSC papers relevant to LabInstrumentVQA. It records bibliographic metadata, relevance tags, and legal open-access links only; unauthorized full-text sources such as Sci-Hub are explicitly filtered out.
-
-Run a small metadata collection pass:
+Run literature metadata tools:
 
 ```sh
 uv run literature-search \
   --rules data/literature/source_rules.yaml \
   --out data/literature/papers.raw.jsonl
-```
 
-Then deduplicate and rank for manual review:
-
-```sh
 uv run literature-dedupe \
   --input data/literature/papers.raw.jsonl \
   --out data/literature/papers.dedup.jsonl
@@ -90,4 +49,21 @@ uv run literature-rank \
   --out data/literature/papers.ranked.jsonl
 ```
 
-IEEE Xplore is optional. Set `IEEE_XPLORE_API_KEY` to include it; otherwise the collector uses public metadata APIs and continues when individual sources rate-limit or fail.
+## Documentation
+
+- [Research Brief](docs/research_brief.md)
+- [Benchmark Design](docs/benchmark_design.md)
+- [Data Layout](docs/data_layout.md)
+- [Literature Workflow](docs/literature_workflow.md)
+- [Development Notes](docs/development.md)
+
+## Development
+
+Run checks through `uv`:
+
+```sh
+uv run pytest
+uv run python -m compileall src
+```
+
+Generated outputs belong under `outputs/` or explicit generated JSONL paths and should not be committed unless they are curated source data.

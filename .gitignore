@@ -63,6 +63,12 @@ env/
 .env
 .env.*
 
+# Generated project outputs
+outputs/
+data/literature/papers.raw.jsonl
+data/literature/papers.dedup.jsonl
+data/literature/papers.ranked.jsonl
+
 # IDEs and OS files
 .idea/
 .vscode/

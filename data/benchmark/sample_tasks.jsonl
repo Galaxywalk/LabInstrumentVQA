@@ -1,0 +1,2 @@
+{"id":"scope_demo_001","image":"images/oscilloscope_demo.svg","instrument":"oscilloscope","question":"What is the approximate peak-to-peak voltage of channel 1? Include the unit.","answer":"About 2.0 Vpp"}
+{"id":"spectrum_demo_001","image":"images/spectrum_analyzer_demo.svg","instrument":"spectrum analyzer","question":"What is the strongest visible peak frequency and power level?","answer":"About 2.45 GHz at -20 dBm"}

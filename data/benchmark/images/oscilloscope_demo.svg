@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="540" viewBox="0 0 900 540">
+  <rect width="900" height="540" fill="#111820"/>
+  <rect x="44" y="40" width="690" height="420" fill="#071015" stroke="#51606a" stroke-width="2"/>
+  <g stroke="#24333d" stroke-width="1">
+    <path d="M44 110H734M44 180H734M44 250H734M44 320H734M44 390H734"/>
+    <path d="M113 40V460M182 40V460M251 40V460M320 40V460M389 40V460M458 40V460M527 40V460M596 40V460M665 40V460"/>
+  </g>
+  <path d="M44 250 C78 145 113 145 147 250 S216 355 251 250 S320 145 354 250 S423 355 458 250 S527 145 561 250 S630 355 665 250 S734 145 734 250" fill="none" stroke="#ffd33d" stroke-width="5"/>
+  <path d="M44 250H734" stroke="#52616b" stroke-width="1" stroke-dasharray="8 8"/>
+  <rect x="760" y="40" width="104" height="420" fill="#17212b" stroke="#51606a" stroke-width="2"/>
+  <text x="66" y="72" fill="#d7edf7" font-family="monospace" font-size="24">TekScope Demo</text>
+  <text x="66" y="438" fill="#ffd33d" font-family="monospace" font-size="24">CH1 500 mV/div</text>
+  <text x="350" y="438" fill="#d7edf7" font-family="monospace" font-size="24">1.00 ms/div</text>
+  <text x="775" y="92" fill="#d7edf7" font-family="monospace" font-size="18">MEASURE</text>
+  <text x="775" y="138" fill="#ffd33d" font-family="monospace" font-size="18">Vpp</text>
+  <text x="775" y="166" fill="#ffd33d" font-family="monospace" font-size="18">2.00 V</text>
+  <text x="775" y="224" fill="#d7edf7" font-family="monospace" font-size="18">Freq</text>
+  <text x="775" y="252" fill="#d7edf7" font-family="monospace" font-size="18">500 Hz</text>
+  <text x="66" y="506" fill="#9fb1bd" font-family="monospace" font-size="22">Trig: rising edge   Coupling: DC   Sample: 1.0 MS/s</text>
+</svg>
