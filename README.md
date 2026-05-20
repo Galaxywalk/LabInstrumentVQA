@@ -4,10 +4,12 @@ LabInstrumentVQA evaluates multimodal models on visual questions about electroni
 
 ## OpenRouter Evaluation
 
-Install the package:
+This repo uses `uv` for Python dependency and environment management. Use the single project environment at `.venv`.
+
+Create or update the environment:
 
 ```sh
-python -m pip install -e .
+uv sync
 ```
 
 Set your OpenRouter API key:
@@ -25,7 +27,7 @@ Prepare a JSONL file with one sample per line:
 Run evaluation:
 
 ```sh
-lab-instrument-vqa \
+uv run lab-instrument-vqa \
   --input examples/sample_tasks.jsonl \
   --output outputs/openrouter_results.jsonl \
   --models '~openai/gpt-latest,~google/gemini-pro-latest,~anthropic/claude-sonnet-latest'
@@ -54,3 +56,12 @@ Optional fields:
 - `answer`: ground-truth answer
 - `instrument`: instrument type
 - `metadata`: structured metadata such as vendor, model, SCPI settings, or trace file paths
+
+## Development
+
+Always run Python commands through the same `uv` environment:
+
+```sh
+uv run python -m compileall src
+uv run lab-instrument-vqa --help
+```

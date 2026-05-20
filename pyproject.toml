@@ -16,3 +16,6 @@ lab-instrument-vqa = "lab_instrument_vqa.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.uv]
+package = true

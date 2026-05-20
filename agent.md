@@ -161,3 +161,19 @@ body
 
 footer
 ```
+
+## Python Environment Rules
+
+Use `uv` for all Python dependency and command management in this repo.
+
+- Keep one project environment only: `.venv` at the repo root.
+- Add or remove dependencies through `pyproject.toml` with `uv add` or `uv remove`.
+- Commit `uv.lock` when dependencies change.
+- Run Python commands through `uv run`, for example:
+
+```text
+uv run python -m compileall src
+uv run lab-instrument-vqa --help
+```
+
+Do not add separate `requirements.txt`, Conda environment files, or additional virtual environments unless the project explicitly changes this rule.
