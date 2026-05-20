@@ -1,0 +1,37 @@
+years:
+  start: 2006
+  end: 2026
+
+queries:
+  - id: isscc_general
+    venue: ISSCC
+    template: '"ISSCC" "{year}" "measurement"'
+  - id: isscc_instrument_keywords
+    venue: ISSCC
+    template: '"ISSCC" "{year}" "{keyword}"'
+    keywords:
+      - ADC
+      - DAC
+      - PLL
+      - RF
+      - mmWave
+      - calibration
+      - jitter
+      - phase noise
+      - BIST
+  - id: jssc_general
+    venue: JSSC
+    template: '"IEEE Journal of Solid-State Circuits" "{year}" "measurement"'
+  - id: jssc_instrument_keywords
+    venue: JSSC
+    template: '"IEEE Journal of Solid-State Circuits" "{year}" "{keyword}"'
+    keywords:
+      - ADC
+      - DAC
+      - PLL
+      - RF
+      - mmWave
+      - calibration
+      - jitter
+      - phase noise
+      - BIST

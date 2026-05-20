@@ -8,11 +8,21 @@ version = "0.1.0"
 description = "Evaluate vision-language models on lab-instrument VQA tasks."
 requires-python = ">=3.10"
 dependencies = [
+    "jsonschema>=4.23.0",
+    "pyyaml>=6.0.2",
     "requests>=2.32.0",
 ]
 
 [project.scripts]
 lab-instrument-vqa = "lab_instrument_vqa.cli:main"
+literature-search = "lab_instrument_vqa.literature.cli:search_main"
+literature-dedupe = "lab_instrument_vqa.literature.cli:dedupe_main"
+literature-rank = "lab_instrument_vqa.literature.cli:rank_main"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.0",
+]
 
 [tool.setuptools.packages.find]
 where = ["src"]

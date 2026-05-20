@@ -1,0 +1,110 @@
+years:
+  start: 2006
+  end: 2026
+
+venues:
+  isscc:
+    names:
+      - "IEEE International Solid-State Circuits Conference"
+      - "ISSCC"
+    publication_type: conference
+  jssc:
+    names:
+      - "IEEE Journal of Solid-State Circuits"
+      - "JSSC"
+    publication_type: journal
+
+sources:
+  priority:
+    - openalex
+    - crossref
+    - dblp
+    - arxiv
+    - semantic_scholar
+    - ieee_xplore
+  ieee_xplore:
+    enabled_if_env: IEEE_XPLORE_API_KEY
+
+open_access_policy:
+  allowed_hosts:
+    - arxiv.org
+    - export.arxiv.org
+    - openaccess.thecvf.com
+    - ieee.org
+    - ieeeauthorcenter.ieee.org
+    - openalex.org
+    - semanticscholar.org
+  allowed_patterns:
+    - "author"
+    - "institution"
+    - "repository"
+    - "preprint"
+    - "doi.org"
+  disallowed_hosts:
+    - sci-hub.se
+    - sci-hub.st
+    - sci-hub.ru
+    - sci-hub.wf
+    - sci-hub.ee
+    - libgen.rs
+
+deduplication:
+  doi_exact: true
+  title_similarity_threshold: 0.92
+
+relevance:
+  strong_keywords:
+    - oscilloscope
+    - spectrum analyzer
+    - network analyzer
+    - vna
+    - measurement
+    - test
+    - calibration
+    - bist
+    - monitor
+    - sensor readout
+    - adc
+    - dac
+    - pll
+    - rf
+    - mmwave
+    - wireless
+    - phase noise
+    - jitter
+    - s-parameter
+  visual_evidence_keywords:
+    - waveform
+    - spectrum
+    - eye diagram
+    - constellation
+    - calibration curve
+    - histogram
+    - smith chart
+    - measurement setup
+    - chip micrograph
+  categories:
+    instruments:
+      - oscilloscope
+      - spectrum analyzer
+      - network analyzer
+      - vna
+    measurements:
+      - waveform
+      - spectrum
+      - phase noise
+      - jitter
+      - s-parameter
+      - calibration
+    circuits:
+      - adc
+      - dac
+      - pll
+      - rf
+      - mmwave
+      - sensor readout
+
+collection:
+  mode: relevant_first
+  keep_all_retrieved_metadata: true
+  default_review_status: needs_review

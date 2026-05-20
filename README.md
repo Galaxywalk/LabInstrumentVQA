@@ -65,3 +65,29 @@ Always run Python commands through the same `uv` environment:
 uv run python -m compileall src
 uv run lab-instrument-vqa --help
 ```
+
+## Literature Metadata
+
+The `data/literature/` workspace contains a legal metadata-only scaffold for surveying recent ISSCC and JSSC papers relevant to LabInstrumentVQA. It records bibliographic metadata, relevance tags, and legal open-access links only; unauthorized full-text sources such as Sci-Hub are explicitly filtered out.
+
+Run a small metadata collection pass:
+
+```sh
+uv run literature-search \
+  --rules data/literature/source_rules.yaml \
+  --out data/literature/papers.raw.jsonl
+```
+
+Then deduplicate and rank for manual review:
+
+```sh
+uv run literature-dedupe \
+  --input data/literature/papers.raw.jsonl \
+  --out data/literature/papers.dedup.jsonl
+
+uv run literature-rank \
+  --input data/literature/papers.dedup.jsonl \
+  --out data/literature/papers.ranked.jsonl
+```
+
+IEEE Xplore is optional. Set `IEEE_XPLORE_API_KEY` to include it; otherwise the collector uses public metadata APIs and continues when individual sources rate-limit or fail.
