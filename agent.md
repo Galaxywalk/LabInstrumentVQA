@@ -117,3 +117,47 @@ Suggested split strategy:
 - metadata-assisted split,
 - and diagnosis-heavy expert split.
 
+## Commit Message Rules
+
+Use a simplified Conventional Commits format:
+
+```text
+<type>(<scope>): <subject>
+```
+
+The scope is optional. Use one of these types:
+
+- `feat`: new feature
+- `fix`: bug fix
+- `docs`: documentation
+- `style`: formatting only, no behavior change
+- `refactor`: code restructuring
+- `test`: tests
+- `chore`: build, tooling, maintenance
+
+Examples:
+
+```text
+feat(auth): add wechat login
+fix(api): fix timeout error
+docs: update readme
+refactor(db): optimize query performance
+```
+
+Rules:
+
+- Chinese or English is allowed, but keep the style consistent within the repo.
+- Keep `subject` under 50 characters.
+- Start `subject` with lowercase when using English.
+- Do not end `subject` with a period.
+- Do not add a detailed body unless it is necessary.
+
+Use the full format only when more explanation is needed:
+
+```text
+type(scope): subject
+
+body
+
+footer
+```
